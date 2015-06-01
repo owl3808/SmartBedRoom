@@ -78,3 +78,9 @@ class Stepper:
     def runInBackGound(self, round=0):
         self.thread = Thread(target=self.run, args=(round,0))
         self.thread.start()
+
+if __name__ == '__main__':
+	m = Stepper()
+	m.setWaitTime(sys.argv[1])
+	m.setStepDir(2)
+	m.run()
