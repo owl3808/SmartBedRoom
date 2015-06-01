@@ -17,7 +17,7 @@ class Clock:
 			self.alarmtime = now.replace(hour=hour, minute=minute)
 		else:
 			self.alarmtime = now.replace(hour=hour, minute=minute) + timedelta(days=1)
-		print 'setting a alarm at %02d:%02d' % (hour,minute)
+		print 'set alarm clock at %d/%d/%d %02d:%02d' % (self.alarmtime.year, self.alarmtime.month, self.alarmtime.day, self.alarmtime.hour, self.alarmtime.minute)
 
 	def getAlarmClock(self):
 		print "%d:%d" % (self.alarmtime.hour, self.alarmtime.minute)
@@ -25,6 +25,9 @@ class Clock:
 	def isAchiveAlarmTime(self):
 		return datetime.now() > self.alarmtime
 
+	def settingAlarmClockToNextDay(self):
+		self.settingAlarmClock(self.alarmtime.hour ,self.alarmtime.minute)
+		
 if __name__ == '__main__':
 	c=Clock()
 	c.showAlarmClock()
