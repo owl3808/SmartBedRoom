@@ -9,8 +9,14 @@ class Button:
 		GPIO.setup(self.pin, GPIO.IN)
 
 	def isPressed(self):
-		return GPIO.input(self.pin)
-
+		if GPIO.input(self.pin):
+			for i in range(100):
+				if not GPIO.input(self.pin):
+					break
+				time.sleep(0.01)
+			return True
+		else:
+			return False
 
 if __name__ == '__main__':
 	GPIO.setmode(GPIO.BOARD)
