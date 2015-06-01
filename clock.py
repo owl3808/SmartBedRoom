@@ -29,6 +29,12 @@ class Clock:
 		self.settingAlarmClock(self.alarmtime.hour ,self.alarmtime.minute)
 		
 if __name__ == '__main__':
+	import time
 	c=Clock()
-	c.showAlarmClock()
+	c.settingAlarmClock(0,9)
+	print c.getAlarmClock()
+	while True:
+		print datetime.now()
+		print c.isAchiveAlarmTime()
+		time.sleep(1)
 	
