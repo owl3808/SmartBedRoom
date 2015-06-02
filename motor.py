@@ -42,6 +42,12 @@ class Stepper:
         if stepdir < 2 and stepdir > -2 and stepdir != 0:
             self.StepDir = stepdir
 
+    def stop(self):
+        # Set all pins False
+        for pin in self.StepPins:
+            GPIO.output(pin, False)
+
+
     def run(self, round=0, no=0):
         # Initialise variables
         StepCounter = 0
