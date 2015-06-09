@@ -81,7 +81,7 @@ class Stepper:
             # Wait before moving on
             time.sleep(self.WaitTime)
 
-    def runInBackGound(self, round=0):
+    def runInBackGround(self, round=0):
         self.thread = Thread(target=self.run, args=(round,0))
         self.thread.start()
 
