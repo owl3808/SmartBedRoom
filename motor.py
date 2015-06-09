@@ -39,8 +39,10 @@ class Stepper:
         print "set waittime: %f" % self.WaitTime
 
     def setStepDir(self, stepdir):
-        if stepdir < 2 and stepdir > -2 and stepdir != 0:
+	stepdir = int(stepdir)
+        if stepdir <= 2 and stepdir >= -2 and stepdir != 0:
             self.StepDir = stepdir
+
 
     def stop(self):
         # Set all pins False
@@ -64,7 +66,7 @@ class Stepper:
                     GPIO.output(xpin, False)
            
             StepCounter += self.StepDir
-           
+            
             # If we reach the end of the sequence
             # start again and count round number
             if (StepCounter>self.StepCount):
@@ -78,7 +80,7 @@ class Stepper:
             if round!=0 and roundCounter >= round:
 		self.stop()
 		break
-           
+	    
             # Wait before moving on
             time.sleep(self.WaitTime)
 
@@ -89,5 +91,5 @@ class Stepper:
 if __name__ == '__main__':
 	m = Stepper()
 	m.setWaitTime(sys.argv[1])
-	m.setStepDir(2)
+	m.setStepDir(sys.argv[2])
 	m.run()
