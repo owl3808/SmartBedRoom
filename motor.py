@@ -76,6 +76,7 @@ class Stepper:
 
             # if reach the setting round
             if round!=0 and roundCounter >= round:
+		self.stop()
 		break
            
             # Wait before moving on
