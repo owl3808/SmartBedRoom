@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-import clock
+import alarmclock
 
 urlpatterns = [
     # Examples:
@@ -8,6 +8,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('clock.urls')),
-    url(r'^clock/', include('clock.urls')),
+    url(r'^$', include('alarmclock.urls')),
+    url(r'^alarmclock/', include('alarmclock.urls')),
 ]
