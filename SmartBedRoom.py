@@ -1,4 +1,5 @@
-import light, lightSensor, clock, musicPlayer, button
+import os, time
+import light, lightSensor, clock, musicPlayer, button, webui
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 
@@ -12,6 +13,10 @@ button = button.Button(12)
 musicPlayer = musicPlayer.MusicPlayer('little_love_song.mp3')
 
 alarmclock.settingAlarmClock(0,23)
+
+webui.setEnv()
+webui.runInBackGround()
+webui.cleanEnv()
 
 while True:
 	if lightsensor.isLightful():
@@ -35,4 +40,4 @@ while True:
 		alarmclock.settingAlarmClockToNextDay()
 		enableAlarm=True
 
-
+	time.sleep(0.01)
