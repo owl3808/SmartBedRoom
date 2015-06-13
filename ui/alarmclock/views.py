@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 import sys, os, __builtin__
+from datetime import datetime
 
 def index(request):
 	return render_to_response('alarmclock.html')
 
 def setalarmtime(request):
-	print 'AA='+str(__builtin__.AA)
 	try:
 		hour = request.REQUEST['hour']
 		minute = request.REQUEST['minute']
@@ -18,4 +18,7 @@ def setalarmtime(request):
 	return HttpResponse("Setting Alarm Clock: " + hour + ':' + minute)
 
 def status(request):
-	return HttpResponse("status: ON<br>time: 11:23")
+	hour, minute = __builtin__.alarmclock.getAlarmClock()
+	ntime = datetime.now()
+	return HttpResponse("status: ON<br>currenttime: %d:%d<br>alarmtime: %d:%d" %(ntime.hour, ntime.minute, hour,minute))
+
