@@ -7,6 +7,7 @@ def run():
 
 def runInBackGround():
 	thread = Thread(target=run, args=())
+	thread.daemon = True
 	thread.start()
 	return thread
 
@@ -19,4 +20,5 @@ def cleanEnv():
 	os.chdir('..')
 
 if __name__ == '__main__':
-	runInBackGround()
+	setEnv()
+	run()
