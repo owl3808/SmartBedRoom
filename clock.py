@@ -14,9 +14,9 @@ class Clock:
 	def settingAlarmClock(self, hour, minute):
 		now = datetime.now()
 		if now < now.replace(hour=hour, minute=minute):
-			self.alarmtime = now.replace(hour=hour, minute=minute)
+			self.alarmtime = now.replace(hour=hour, minute=minute, second=0)
 		else:
-			self.alarmtime = now.replace(hour=hour, minute=minute) + timedelta(days=1)
+			self.alarmtime = now.replace(hour=hour, minute=minute, second=0) + timedelta(days=1)
 		print 'set alarm clock at %d/%d/%d %02d:%02d' % (self.alarmtime.year, self.alarmtime.month, self.alarmtime.day, self.alarmtime.hour, self.alarmtime.minute)
 
 	def getAlarmClock(self):
