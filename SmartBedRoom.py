@@ -1,5 +1,5 @@
 import os, time, __builtin__
-import light, lightSensor, clock, musicPlayer, button, webui
+import light, lightSensor, clock, musicPlayer, button, webui, curtain
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 
@@ -13,6 +13,7 @@ ledlight = light.light(3)
 alarmclock = clock.Clock()
 button = button.Button(12)
 musicPlayer = musicPlayer.MusicPlayer('little_love_song.mp3')
+curtain = curtain.curtain(10000)
 
 # store instances into __builtin__
 __builtin__.lightsensor = lightsensor
@@ -20,6 +21,7 @@ __builtin__.ledlight = ledlight
 __builtin__.alarmclock = alarmclock
 __builtin__.button = button
 __builtin__.musicPlayer = musicPlayer
+__builtin__.curtain = curtain
 
 # for test, set the time of alarm clock
 alarmclock.settingAlarmClock(0,23)
@@ -41,6 +43,7 @@ while True:
 			if not isplayingmusic:
 				print 'alarmclock: alarming!'
 				musicPlayer.play()
+				curtain.open()
 				isplayingmusic = True
 
 	if enableAlarm and button.isPressed():
