@@ -11,7 +11,6 @@ def runInBackGround():
 	return thread
 
 def setEnv():
-	#os.chdir('ui')
 	newpath = [os.path.dirname(os.path.abspath(__file__))+'/ui']
 	newpath.extend(sys.path)
 	sys.path=newpath
