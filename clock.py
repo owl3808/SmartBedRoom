@@ -21,6 +21,7 @@ class Clock:
 
 	def getAlarmClock(self):
 		print "%d:%d" % (self.alarmtime.hour, self.alarmtime.minute)
+		return self.alarmtime.hour, self.alarmtime.minute
 
 	def isAchiveAlarmTime(self):
 		return datetime.now() > self.alarmtime
