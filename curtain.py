@@ -1,7 +1,7 @@
 import motor
 
 class curtain:
-	def __init__(self, roundofmotor, openstep=2):
+	def __init__(self, roundofmotor, openstep=1):
 	# roundofmotor: the round of stepmotor that needed to close/open the curtain
 	# openstop: the stepdir of stepper, 1 slow, 2 faster, -1 -2 inverse direction slow and fast
 		self.curtainmotor = motor.Stepper()
@@ -12,11 +12,11 @@ class curtain:
 		print self.closeStep
 
 	def open(self):
-		self.curtainmotor.setStepDir(2)
+		self.curtainmotor.setStepDir(1)
 		self.curtainmotor.runInBackGround(self.roundOfMotor)
 
 	def close(self):
-		self.curtainmotor.setStepDir(-2)
+		self.curtainmotor.setStepDir(-1)
 		self.curtainmotor.runInBackGround(self.roundOfMotor)
 
 if __name__ == '__main__':
