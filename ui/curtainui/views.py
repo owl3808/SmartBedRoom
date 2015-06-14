@@ -5,7 +5,7 @@ import sys, os, __builtin__
 from datetime import datetime
 
 def index(request):
-	return render_to_response('index.html')
+	return render_to_response('curtain_control.html')
 
 def Open(request):
 	__builtin__.curtain.open()

@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'alarmclock',
     'curtainui',
+    'mainpage',
 )
 
 MIDDLEWARE_CLASSES = (
