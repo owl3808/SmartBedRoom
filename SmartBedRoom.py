@@ -13,7 +13,7 @@ ledlight = light.light(3)
 alarmclock = clock.Clock()
 button = button.Button(12)
 musicPlayer = musicPlayer.MusicPlayer('little_love_song.mp3')
-curtain = curtain.curtain(10000)
+curtain = curtain.curtain(700)
 
 # store instances into __builtin__
 __builtin__.lightsensor = lightsensor
@@ -24,7 +24,7 @@ __builtin__.musicPlayer = musicPlayer
 __builtin__.curtain = curtain
 
 # for test, set the time of alarm clock
-alarmclock.settingAlarmClock(0,23)
+alarmclock.settingAlarmClock(8,0)
 
 # start web ui (django)
 webui.setEnv()
