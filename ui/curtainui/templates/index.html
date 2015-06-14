@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Set Alarm Clock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+<body>
+
+
+<script language="javascript">
+    function Open() {
+        sdrfft = new XMLHttpRequest();
+        sdrfft.open("GET", "open");
+        sdrfft.send();
+
+    }
+    function Close() {
+        sdrfft = new XMLHttpRequest();
+        sdrfft.open("GET", "close");
+        sdrfft.send();
+    }
+</script>
+
+<input name="open_b" type="button" value="Open" onclick="Open()"/>&nbsp;<input name="close_b" type="button" value="Close" onclick="Close()"/>
+
+</body>
+</html>
