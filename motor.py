@@ -86,6 +86,7 @@ class Stepper:
 
     def runInBackGround(self, round=0):
         self.thread = Thread(target=self.run, args=(round,0))
+	self.thread.daemon = True
         self.thread.start()
 
 if __name__ == '__main__':
