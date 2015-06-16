@@ -22,6 +22,7 @@ __builtin__.alarmclock = alarmclock
 __builtin__.button = button
 __builtin__.musicPlayer = musicPlayer
 __builtin__.curtain = curtain
+__builtin__.enableAlarm = enableAlarm
 
 # for test, set the time of alarm clock
 alarmclock.settingAlarmClock(8,0)

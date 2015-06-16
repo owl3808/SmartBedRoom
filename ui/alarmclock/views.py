@@ -14,6 +14,7 @@ def setalarmtime(request):
         except KeyError:
 		return HttpResponse("Error: not import hour or minute value")
 	__builtin__.alarmclock.settingAlarmClock(int(hour), int(minute))
+	__builtin__.enableAlarm = True
 	print __builtin__.alarmclock.getAlarmClock()
 	return HttpResponse("Setting Alarm Clock: " + hour + ':' + minute)
 
