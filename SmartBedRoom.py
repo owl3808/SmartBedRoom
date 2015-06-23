@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 
 # variables
-enableAlarm = True
+__builtin__.enableAlarm = True
 isplayingmusic = False
 
 # create instance of modules
@@ -22,7 +22,6 @@ __builtin__.alarmclock = alarmclock
 __builtin__.button = button
 __builtin__.musicPlayer = musicPlayer
 __builtin__.curtain = curtain
-__builtin__.enableAlarm = enableAlarm
 
 # for test, set the time of alarm clock
 alarmclock.settingAlarmClock(8,0)
@@ -39,7 +38,7 @@ while True:
 	else:
 		ledlight.lightOn()
 	
-	if enableAlarm:
+	if __builtin__.enableAlarm:
 		if alarmclock.isAchiveAlarmTime():
 			if not isplayingmusic:
 				print 'alarmclock: alarming!'
@@ -47,13 +46,13 @@ while True:
 				curtain.open()
 				isplayingmusic = True
 
-	if enableAlarm and button.isPressed():
+	if __builtin__.enableAlarm and button.isPressed():
 		musicPlayer.stop()
-		ismucicplaying = False
-		enableAlarm=False
+		isplayingmusic = False
+		__builtin__.enableAlarm=False
 
-	if not enableAlarm and button.isPressed():
+	if not __builtin__.enableAlarm and button.isPressed():
 		alarmclock.settingAlarmClockToNextDay()
-		enableAlarm=True
+		__builtin__.enableAlarm=True
 
 	time.sleep(0.1)
